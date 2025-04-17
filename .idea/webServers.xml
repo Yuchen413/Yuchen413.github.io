@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="WebServers">
+    <option name="servers">
+      <webServer id="2b111e24-6582-4d31-a48b-4cec1a5cd431" name="yuchen413@masters1.cs.jhu.edu">
+        <fileTransfer rootFolder="/users/yuchen413" accessType="SFTP" host="masters1.cs.jhu.edu" port="22" sshConfigId="6a021615-38f6-4d95-932f-dfefe8f215ed" sshConfig="yuchen413@masters1.cs.jhu.edu:22 password">
+          <advancedOptions>
+            <advancedOptions dataProtectionLevel="Private" keepAliveTimeout="0" passiveMode="true" shareSSLContext="true" />
+          </advancedOptions>
+        </fileTransfer>
+      </webServer>
+    </option>
+  </component>
+</project>
