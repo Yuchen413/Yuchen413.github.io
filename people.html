@@ -62,50 +62,151 @@
 <!-- People Section -->
 <div class="w3-container w3-padding-32" id="people">
   <div style="max-width: 780px; margin: auto;">
+    <style>
+  .people-grid {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 18px;
+  }
+  @media (max-width: 900px) {
+    .people-grid {
+      grid-template-columns: repeat(2, 1fr);
+    }
+  }
 
-    <h2>People</h2>
+  .person-card {
+    background: #fff;
+    border-radius: 14px;
+    overflow: hidden;
+    box-shadow: 0 10px 26px rgba(0,0,0,0.10);
+    border: 1px solid rgba(0,0,0,0.06);
+    text-align: center;
+    padding-bottom: 16px;
+  }
+
+  .person-photo-wrap {
+    padding: 16px 16px 0 16px;
+  }
+
+  .person-photo {
+    width: 100%;
+    aspect-ratio: 1 / 1;
+    object-fit: cover;
+    border-radius: 10px;
+    display: block;
+  }
+
+  .person-name {
+    margin: 12px 0 0 0;
+    color: #4E83AA;
+    font-size: 22px;
+    font-weight: 600;
+  }
+
+  .person-role {
+    margin: 6px 0 0 0;
+    color: #888;
+    font-size: 20px;
+  }
+
+  .person-time {
+    margin: 6px 0 0 0;
+    color: #a0a0a0;
+    font-size: 18px;
+  }
+
+  .footprint {
+    margin-top: 8px;
+    font-size: 16px;
+    color: #4E83AA;
+  }
+</style>
+
+
+
+    <!-- group -->
+    <div class="w3-card w3-round-large"
+     style="position:relative; overflow:hidden;
+            width: 91%;
+            margin: 12px auto 16px auto;">
+
+  <img src="images/crab.jpg" alt="Lab group"
+       style="width:100%; height:320px; object-fit:cover; display:block;">
+
+  <div style="position:absolute; left:14px; bottom:12px;
+              color:#fff; background:rgba(0,0,0,0.35);
+              padding:8px 12px; border-radius:12px;">
+    <div style="font-weight:bold;">Lab Moments</div>
+    <div style="font-size:13px; opacity:0.95;">
+      Dec 23, 2025 • Crazy Crab • DC
+    </div>
+  </div>
+</div>
+
+
+        <hr style="border: none; border-top: 1px solid #ccc; margin: 0 auto; width: 91%;">
+
+    <h2>Group</h2>
+
+
+
         I am honored to work with the following brilliant people.
+
+
     <h4>Ph.D. Students</h4>
 
-    <div style="margin: 20px 0;">
 
-      <!-- Yichi -->
-      <div style="display: flex; align-items: center; border: 2px solid #4E83AA;
-                  border-radius: 10px; padding: 15px; margin-bottom: 20px;">
-        <img src="images/yichi.jpeg" alt=""
-             style="width: 150px; height: 150px; border-radius: 50%;
-                    object-fit: cover; margin-right: 15px;">
-        <div>
-          <h3 style="color: #4E83AA; margin: 0;">
-            <a href="https://yichics.github.io/"
-               style="text-decoration:none; color: #4E83AA;">Yichi Zhang</a>
-          </h3>
-          <p>Ph.D. Student at Penn State, 2025.08 - Current</p>
-          <p><span style="color:#4E83AA;">👣</span> Travel Footprints: Bologna, Italy (ECAI'25)</p>
-        </div>
-      </div>
+<!-- people -->
+<div class="people-grid" style="margin-top: 12px;">
 
-      <!-- Zhiqi -->
-      <div style="display: flex; align-items: center; border: 2px solid #4E83AA;
-                  border-radius: 10px; padding: 15px;">
-        <img src="images/zhiqi.jpg" alt=""
-             style="width: 150px; height: 150px; border-radius: 50%;
-                    object-fit: cover; margin-right: 15px;">
-        <div>
-          <h3 style="color: #4E83AA; margin: 0;">
-            <a href="https://zhiqieliwang.github.io/"
-               style="text-decoration:none; color: #4E83AA;">Zhiqi Wang</a>
-          </h3>
-          <p>Ph.D. Student at Penn State, 2025.08 - Current</p>
-          <p> <span style="color:#4E83AA;">👣</span> Travel Footprints: Taipei City (ACM CCS'25)</p>
+  <!-- Yichi -->
+  <div class="person-card">
+    <div class="person-photo-wrap">
+      <img class="person-photo" src="images/yichi.jpeg" alt="Yichi Zhang">
+    </div>
+
+    <h3 class="person-name">
+      <a href="https://yichics.github.io/"
+         style="text-decoration:none; color: inherit;">
+        Yichi Zhang
+      </a>
+    </h3>
+
+    <div class="person-role">PhD Student</div>
+    <div class="person-time">Fall 2025 – Now</div>
+
+    <div class="footprint">
+      👣 Bologna, Italy (ECAI’25)
+    </div>
+  </div>
+
+  <!-- Zhiqi -->
+  <div class="person-card">
+    <div class="person-photo-wrap">
+      <img class="person-photo" src="images/zhiqi.jpg" alt="Zhiqi Wang">
+    </div>
+
+    <h3 class="person-name">
+      <a href="https://zhiqieliwang.github.io/"
+         style="text-decoration:none; color: inherit;">
+        Zhiqi Wang
+      </a>
+    </h3>
+
+    <div class="person-role">PhD Student</div>
+    <div class="person-time">Fall 2025 – Now</div>
+
+    <div class="footprint">
+      👣 Taipei City (ACM CCS’25)
+    </div>
+  </div>
+
+</div>
 
 
-        </div>
-      </div>
-
-    </div> <!-- closes margin:20px -->
 
   </div> <!-- closes max-width container -->
+
 </div> <!-- closes people section -->
 
 <!-- Alumni Section -->
