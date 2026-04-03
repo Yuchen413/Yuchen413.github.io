@@ -1,285 +1,300 @@
 <!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en">
-
 <head>
   <title>People - Yuchen Yang</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta charset="UTF-8" />
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
 
-  <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
-  <link rel="stylesheet" href="https://www.w3schools.com/lib/w3-theme-blue-grey.css">
-  <meta charset="UTF-8">
-  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+  <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css" />
+  <link rel="stylesheet" href="https://www.w3schools.com/lib/w3-theme-blue-grey.css" />
+  <!-- Remove this if you do not need a local copy -->
+  <link rel="stylesheet" href="w3.css" />
 
-  <link rel="stylesheet" href="w3.css">
+  <link rel="icon" type="image/png" href="images/psu.png" />
+
   <style>
-    .w3-sidebar a {font-family: "Roboto", sans-serif}
-    body,h1,h2,h3,h4,h5,h6,.w3-wide {font-family:Georgia, serif;}
+    .w3-sidebar a {
+      font-family: "Roboto", sans-serif;
+    }
+
+    body, h1, h2, h3, h4, h5, h6, .w3-wide {
+      font-family: Georgia, serif;
+    }
+
+    .people-grid {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 18px;
+    }
+
+    @media (max-width: 900px) {
+      .people-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+    }
+
+    @media (max-width: 600px) {
+      .people-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    .person-card {
+      background: #fff;
+      border-radius: 14px;
+      overflow: hidden;
+      box-shadow: 0 10px 26px rgba(0, 0, 0, 0.10);
+      border: 1px solid rgba(0, 0, 0, 0.06);
+      text-align: center;
+      padding-bottom: 16px;
+    }
+
+    .person-photo-wrap {
+      padding: 16px 16px 0 16px;
+    }
+
+    .person-photo {
+      width: 100%;
+      aspect-ratio: 1 / 1;
+      object-fit: cover;
+      border-radius: 10px;
+      display: block;
+    }
+
+    .person-name {
+      margin: 12px 0 0 0;
+      color: #4E83AA;
+      font-size: 22px;
+      font-weight: 600;
+    }
+
+    .person-role {
+      margin: 6px 0 0 0;
+      color: #888;
+      font-size: 20px;
+    }
+
+    .person-time {
+      margin: 6px 0 0 0;
+      color: #a0a0a0;
+      font-size: 18px;
+    }
+
+    .footprint {
+      margin-top: 8px;
+      font-size: 16px;
+      color: #4E83AA;
+    }
+
+    .member-list {
+      padding-left: 22px;
+      margin-top: 8px;
+    }
+
+    .member-list li {
+      margin-bottom: 8px;
+    }
   </style>
-  <link rel="icon" type="image/png" href="images/psu.png">
 </head>
 
 <body class="w3-content" style="max-width:1000px">
 
-<!-- Sidebar/menu -->
-<nav class="w3-sidebar w3-bar-block w3-collapse w3-top w3-right"
-     style="z-index:3;width:150px; background-color: #A0B1B9;" id="mySidebar">
-  <div class="w3-container w3-blue-grey w3-display-container w3-padding-16">
-    <h3><b>Welcome</b></h3>
-  </div>
-  <div class="w3-padding-64 w3-text-light-grey w3-large" style="font-weight:bold">
-    <a href="index.html" class="w3-bar-item w3-button w3-hover-blue-grey">Home</a>
-       <a href="people.html" class="w3-bar-item w3-button w3-hover-blue-grey">Group</a>
-    <a href="publications.html" class="w3-bar-item w3-button w3-hover-blue-grey">Publications</a>
-    <a href="teaching.html" class="w3-bar-item w3-button w3-hover-blue-grey">Teaching</a>
-    <a href="services.html" class="w3-bar-item w3-button w3-hover-blue-grey">Services</a>
-    <a href="misc.html" class="w3-bar-item w3-button w3-hover-blue-grey">Misc</a>
-  </div>
-
-  <div style="width: 100%; text-align: center; padding: 10px 0; margin-top: auto;">
-    <script type='text/javascript' id='clustrmaps'
-      src='//cdn.clustrmaps.com/map_v2.js?cl=ffffff&w=a&t=n&d=JYNBrTGiMidXP4iRGDexAz8y7pc_jkV5DzZQE2jjQyU&co=A0B1B9'>
-    </script>
-  </div>
-</nav>
-
-<!-- Top menu on small screens -->
-<header class="w3-bar w3-top w3-hide-large w3-blue-grey w3-xlarge">
-  <a href="index.html" class="w3-bar-item w3-padding-24">YUCHEN</a>
-  <a href="javascript:void(0)"
-     class="w3-bar-item w3-button w3-padding-24 w3-right"
-     style="font-stretch: extra-expanded;"
-     onclick="w3_open()"><b>≡</b></a>
-</header>
-
-<div class="w3-overlay w3-hide-large"
-     onclick="w3_close()" style="cursor:pointer"
-     title="close side menu" id="myOverlay"></div>
-
-<div class="w3-main" style="margin-left:150px">
-
-  <div class="w3-hide-large" style="margin-top:83px"></div>
-
-<!-- People Section -->
-<div class="w3-container w3-padding-32" id="people">
-  <div style="max-width: 780px; margin: auto;">
-    <style>
-  .people-grid {
-    display: grid;
-    grid-template-columns: repeat(3, minmax(0, 1fr));
-    gap: 18px;
-  }
-  @media (max-width: 900px) {
-    .people-grid {
-      grid-template-columns: repeat(2, 1fr);
-    }
-  }
-
-  .person-card {
-    background: #fff;
-    border-radius: 14px;
-    overflow: hidden;
-    box-shadow: 0 10px 26px rgba(0,0,0,0.10);
-    border: 1px solid rgba(0,0,0,0.06);
-    text-align: center;
-    padding-bottom: 16px;
-  }
-
-  .person-photo-wrap {
-    padding: 16px 16px 0 16px;
-  }
-
-  .person-photo {
-    width: 100%;
-    aspect-ratio: 1 / 1;
-    object-fit: cover;
-    border-radius: 10px;
-    display: block;
-  }
-
-  .person-name {
-    margin: 12px 0 0 0;
-    color: #4E83AA;
-    font-size: 22px;
-    font-weight: 600;
-  }
-
-  .person-role {
-    margin: 6px 0 0 0;
-    color: #888;
-    font-size: 20px;
-  }
-
-  .person-time {
-    margin: 6px 0 0 0;
-    color: #a0a0a0;
-    font-size: 18px;
-  }
-
-  .footprint {
-    margin-top: 8px;
-    font-size: 16px;
-    color: #4E83AA;
-  }
-</style>
-
-
-
-    <!-- group -->
-    <div class="w3-card w3-round-large"
-     style="position:relative; overflow:hidden;
-            width: 91%;
-            margin: 12px auto 16px auto;">
-
-  <img src="images/crab.jpg" alt="Lab group"
-       style="width:100%; height:320px; object-fit:cover; display:block;">
-
-  <div style="position:absolute; left:14px; bottom:12px;
-              color:#fff; background:rgba(0,0,0,0.35);
-              padding:8px 12px; border-radius:12px;">
-    <div style="font-weight:bold;">Lab Moments</div>
-    <div style="font-size:13px; opacity:0.95;">
-      Dec 23, 2025 • Crazy Crab • DC
-    </div>
-  </div>
-</div>
-
-
-        <hr style="border: none; border-top: 1px solid #ccc; margin: 0 auto; width: 91%;">
-
-    <h2>Group</h2>
-
-
-
-        I am honored to work with the following brilliant people.
-
-
-    <h4>Ph.D. Students</h4>
-
-
-<!-- people -->
-<div class="people-grid" style="margin-top: 12px;">
-
-  <!-- Yichi -->
-  <div class="person-card">
-    <div class="person-photo-wrap">
-      <img class="person-photo" src="images/yichi.jpeg" alt="Yichi Zhang">
+  <!-- Sidebar/menu -->
+  <nav
+    class="w3-sidebar w3-bar-block w3-collapse w3-top w3-right"
+    style="z-index:3; width:150px; background-color:#A0B1B9;"
+    id="mySidebar"
+  >
+    <div class="w3-container w3-blue-grey w3-display-container w3-padding-16">
+      <h3><b>Welcome</b></h3>
     </div>
 
-    <h3 class="person-name">
-      <a href="https://yichics.github.io/"
-         style="text-decoration:none; color: inherit;">
-        Yichi Zhang
-      </a>
-    </h3>
-
-    <div class="person-role">PhD Student</div>
-    <div class="person-time">Fall 2025 – Now</div>
-
-    <div class="footprint">
-      👣 Bologna, Italy (ECAI’25)
+    <div class="w3-padding-64 w3-text-light-grey w3-large" style="font-weight:bold">
+      <a href="index.html" class="w3-bar-item w3-button w3-hover-blue-grey">Home</a>
+      <a href="people.html" class="w3-bar-item w3-button w3-hover-blue-grey">Group</a>
+      <a href="publications.html" class="w3-bar-item w3-button w3-hover-blue-grey">Publications</a>
+      <a href="teaching.html" class="w3-bar-item w3-button w3-hover-blue-grey">Teaching</a>
+      <a href="services.html" class="w3-bar-item w3-button w3-hover-blue-grey">Services</a>
+      <a href="misc.html" class="w3-bar-item w3-button w3-hover-blue-grey">Misc</a>
     </div>
+
+    <div style="width:100%; text-align:center; padding:10px 0;">
+      <script
+        type="text/javascript"
+        id="clustrmaps"
+        src="//cdn.clustrmaps.com/map_v2.js?cl=ffffff&w=a&t=n&d=JYNBrTGiMidXP4iRGDexAz8y7pc_jkV5DzZQE2jjQyU&co=A0B1B9">
+      </script>
+    </div>
+  </nav>
+
+  <!-- Top menu on small screens -->
+  <header class="w3-bar w3-top w3-hide-large w3-blue-grey w3-xlarge">
+    <a href="index.html" class="w3-bar-item w3-padding-24">YUCHEN</a>
+    <a
+      href="javascript:void(0)"
+      class="w3-bar-item w3-button w3-padding-24 w3-right"
+      style="font-stretch: extra-expanded;"
+      onclick="w3_open()"
+    ><b>≡</b></a>
+  </header>
+
+  <div
+    class="w3-overlay w3-hide-large"
+    onclick="w3_close()"
+    style="cursor:pointer"
+    title="close side menu"
+    id="myOverlay">
   </div>
 
-  <!-- Zhiqi -->
-  <div class="person-card">
-    <div class="person-photo-wrap">
-      <img class="person-photo" src="images/zhiqi.jpg" alt="Zhiqi Wang">
+  <div class="w3-main" style="margin-left:150px">
+    <div class="w3-hide-large" style="margin-top:83px"></div>
+
+    <!-- People Section -->
+    <div class="w3-container w3-padding-32" id="people">
+      <div style="max-width:780px; margin:auto;">
+
+        <!-- group -->
+        <div
+          class="w3-card w3-round-large"
+          style="position:relative; overflow:hidden; width:91%; margin:12px auto 16px auto;"
+        >
+          <img
+            src="images/crab.jpg"
+            alt="Lab group"
+            style="width:100%; height:320px; object-fit:cover; display:block;"
+          />
+
+          <div
+            style="position:absolute; left:14px; bottom:12px; color:#fff; background:rgba(0,0,0,0.35); padding:8px 12px; border-radius:12px;"
+          >
+            <div style="font-weight:bold;">Lab Moments</div>
+            <div style="font-size:13px; opacity:0.95;">
+              Dec 23, 2025 • Crazy Crab • DC
+            </div>
+          </div>
+        </div>
+
+        <hr style="border:none; border-top:1px solid #ccc; margin:0 auto; width:91%;" />
+
+        <h2>Group</h2>
+        <p>I am honored to work with the following brilliant people.</p>
+
+        <h4>Ph.D. Students</h4>
+
+        <div class="people-grid" style="margin-top:12px;">
+
+          <!-- Yichi -->
+          <div class="person-card">
+            <div class="person-photo-wrap">
+              <img class="person-photo" src="images/yichi.jpeg" alt="Yichi Zhang" />
+            </div>
+
+            <h3 class="person-name">
+              <a href="https://yichics.github.io/" style="text-decoration:none; color:inherit;">
+                Yichi Zhang
+              </a>
+            </h3>
+
+            <div class="person-role">PhD Student</div>
+            <div class="person-time">Fall 2025 – Now</div>
+
+            <div class="footprint">
+              👣 Bologna, Italy (ECAI’25)
+            </div>
+          </div>
+
+          <!-- Zhiqi -->
+          <div class="person-card">
+            <div class="person-photo-wrap">
+              <img class="person-photo" src="images/zhiqi.jpg" alt="Zhiqi Wang" />
+            </div>
+
+            <h3 class="person-name">
+              <a href="https://zhiqieliwang.github.io/" style="text-decoration:none; color:inherit;">
+                Zhiqi Wang
+              </a>
+            </h3>
+
+            <div class="person-role">PhD Student</div>
+            <div class="person-time">Fall 2025 – Now</div>
+
+            <div class="footprint">
+              👣 Taipei City (ACM CCS’25)
+            </div>
+          </div>
+
+          <!-- Yuyang -->
+          <div class="person-card">
+            <div class="person-photo-wrap">
+              <img class="person-photo" src="images/yuyang.jpg" alt="Yuyang Zhang" />
+            </div>
+
+            <h3 class="person-name">
+              <a href="https://zyy136.github.io/" style="text-decoration:none; color:inherit;">
+                Yuyang Zhang
+              </a>
+            </h3>
+
+            <div class="person-role">PhD Student</div>
+            <div class="person-time">Fall 2026 – Now</div>
+
+            <div class="footprint">
+              👣 (Incoming)
+            </div>
+          </div>
+
+        </div>
+      </div>
     </div>
 
-    <h3 class="person-name">
-      <a href="https://zhiqieliwang.github.io/"
-         style="text-decoration:none; color: inherit;">
-        Zhiqi Wang
-      </a>
-    </h3>
-
-    <div class="person-role">PhD Student</div>
-    <div class="person-time">Fall 2025 – Now</div>
-
-    <div class="footprint">
-      👣 Taipei City (ACM CCS’25)
-    </div>
-  </div>
-
-      <!-- Yuyang -->
-  <div class="person-card">
-    <div class="person-photo-wrap">
-      <img class="person-photo" src="images/yuyang.jpg" alt="Zhiqi Wang">
-    </div>
-
-    <h3 class="person-name">
-      <a href="https://zyy136.github.io/"
-         style="text-decoration:none; color: inherit;">
-        Yuyang Zhang
-      </a>
-    </h3>
-
-    <div class="person-role">PhD Student</div>
-    <div class="person-time">Fall 2026 – Now</div>
-
-    <div class="footprint">
-    👣(Incoming)
-    </div>
-  </div>
-
-</div>
-
-
-  </div> <!-- closes max-width container -->
-
-</div> <!-- closes people section -->
-
- <!-- Current Master Section -->
-  <div class="w3-container  w3-padding-4">
-  <div style="max-width: 780px; margin: auto;">
-    <h4>Master Students</h4>
-    <p><li>Anglin Cai (NWU, 2026.2 - current)</li></p>
-    <p><li>Zhenxiang Huang (HKU, 2025.12 - current)</li></p>
-    <p><li>Yurun Lin (Drexel, 2025.10 - current)</li></p>
-
-  </div>
-</div>
-
- <!-- Current Undergrad Section -->
+    <!-- Current Master Section -->
     <div class="w3-container w3-padding-8">
+      <div style="max-width:780px; margin:auto;">
+        <h4>Master Students</h4>
+        <ul class="member-list">
+          <li>Anglin Cai (NWU, 2026.2 - current)</li>
+          <li>Zhenxiang Huang (HKU, 2025.12 - current)</li>
+          <li>Yurun Lin (Drexel, 2025.10 - current)</li>
+        </ul>
+      </div>
+    </div>
 
-  <div style="max-width: 780px; margin: auto;">
-    <h4>Undergraduate Students</h4>
-    <p><li>Scott Garcia (Penn State, 2026.3 - current, advisor for Honors Program Thesis)</li></p>
-    <p><li>Nizhang Li (MUST, 2026.2 - current, visiting scholar)</li></p>
-    <p><li>Deekshith Reddy Bhoomireddy (Penn State, 2025.11 - current)</li></p>
-    <p><li>Rishit Rai (Penn State, 2025.11 - current)</li></p>
+    <!-- Current Undergrad Section -->
+    <div class="w3-container w3-padding-10" style="padding-bottom:32px;">
+      <div style="max-width:780px; margin:auto;">
+        <h4>Undergraduate Students</h4>
+        <ul class="member-list">
+          <li>Scott Garcia (Penn State, 2026.3 - current, advisor for Honors Program Thesis)</li>
+          <li>Nizhang Li (MUST, 2026.2 - current, visiting scholar)</li>
+          <li>Deekshith Reddy Bhoomireddy (Penn State, 2025.11 - current)</li>
+          <li>Rishit Rai (Penn State, 2025.11 - current)</li>
+        </ul>
+      </div>
+    </div>
 
+    <!-- Alumni -->
+    <div class="w3-container w3-theme-l4 w3-padding-32">
+      <div style="max-width:780px; margin:auto;">
+        <h2>Alumni</h2>
+        <ul class="member-list">
+          <li>Zihao Zhao (Undergraduate student @ JHU, 2023.12 - 2024.12 → Ph.D. Student @ JHU)</li>
+          <li>Qichang Liu (Undergraduate student @ Tsinghua, 2024.06 - 2024.12 → Ph.D. Student @ UIUC)</li>
+        </ul>
+      </div>
+    </div>
   </div>
-</div>
 
+  <script>
+    function w3_open() {
+      document.getElementById("mySidebar").style.display = "block";
+      document.getElementById("myOverlay").style.display = "block";
+    }
 
-<div class="w3-container w3-theme-l4 w3-padding-32">
-
-  <div style="max-width: 780px; margin: auto;">
-    <h2>Alumni</h2>
-    <p><li>Zihao Zhao (Undergraduate student @ JHU 2023.12 - 2024.12 → Ph.D. Student @ JHU)</li></p>
-    <p><li>Qichang Liu (Undergraduate student @ Tsinghua 2024.06 - 2024.12 → Ph.D. Student @ UIUC)</li></p>
-  </div>
-</div>
-
-
-
-
-
-
-
-<script>
-  function w3_open() {
-    document.getElementById("mySidebar").style.display = "block";
-    document.getElementById("myOverlay").style.display = "block";
-  }
-
-  function w3_close() {
-    document.getElementById("mySidebar").style.display = "none";
-    document.getElementById("myOverlay").style.display = "none";
-  }
-</script>
-
+    function w3_close() {
+      document.getElementById("mySidebar").style.display = "none";
+      document.getElementById("myOverlay").style.display = "none";
+    }
+  </script>
 </body>
 </html>
