@@ -96,6 +96,48 @@
       margin-bottom: 8px;
     }
   </style>
+
+    <!-- Footnote -->
+  <style>
+    .footprint {
+      margin-top: 12px;
+      padding-top: 10px;
+      border-top: 1px solid #e8ebef;
+    }
+
+    /*.footprint-title {*/
+    /*  margin-bottom: 7px;*/
+    /*  color: #7a8491;*/
+    /*  font-size: 0.65rem;*/
+    /*  font-weight: 700;*/
+    /*  letter-spacing: 0.07em;*/
+    /*  text-align: center;*/
+    /*  text-transform: uppercase;*/
+    /*}*/
+
+    .footprint-stops {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 5px;
+    }
+
+    .footprint-stop {
+      padding: 4px 8px;
+      border: 1px solid #e2e7ec;
+      border-radius: 999px;
+      background: #f7f9fb;
+      color: #4b5563;
+      font-size: 0.7rem;
+      line-height: 1.2;
+      white-space: nowrap;
+    }
+
+    .footprint-stop:hover {
+      border-color: #b8c4d0;
+      background: #eef3f7;
+    }
+  </style>
 </head>
 
 <body class="w3-content" style="max-width:1000px">
@@ -199,9 +241,13 @@
             <div class="person-role">PhD Student</div>
             <div class="person-time">Fall 2025 – Now</div>
 
-            <div class="footprint">
-              👣 Bologna, Italy (ECAI’25)
-            </div>
+              <div class="footprint">
+                <span class="footprint-icon" aria-hidden="true">👣</span>
+                <span class="footprint-stop">Bologna · ECAI ’25</span>
+                <span class="footprint-stop">Seoul · ICML ’26</span>
+                <span class="footprint-stop">Baltimore · USENIX Security ’26</span>
+              </div>
+
           </div>
 
           <!-- Zhiqi -->
@@ -219,9 +265,11 @@
             <div class="person-role">PhD Student</div>
             <div class="person-time">Fall 2025 – Now</div>
 
-            <div class="footprint">
-              👣 Taipei City (ACM CCS’25)
-            </div>
+              <div class="footprint">
+                <span class="footprint-icon" aria-hidden="true">👣</span>
+                <span class="footprint-stop">Taipei · ACM CCS ’25</span>
+                <span class="footprint-stop">Baltimore · USENIX Security ’26</span>
+              </div>
           </div>
 
           <!-- Yuyang -->
@@ -240,8 +288,9 @@
             <div class="person-time">Fall 2026 – Now</div>
 
             <div class="footprint">
-              👣 (Incoming)
-            </div>
+                <span class="footprint-icon" aria-hidden="true">👣</span>
+                <span class="footprint-stop">Incoming</span>
+              </div>
           </div>
 
         </div>
@@ -255,7 +304,6 @@
         <ul class="member-list">
           <li>Anglin Cai (NWU, 2026.2 - current)</li>
           <li>Zhenxiang Huang (HKU, 2025.12 - current)</li>
-          <li>Yurun Lin (Drexel, 2025.10 - current)</li>
         </ul>
       </div>
     </div>
@@ -266,9 +314,7 @@
         <h4>Undergraduate Students</h4>
         <ul class="member-list">
           <li>Scott Garcia (Penn State, 2026.3 - current, advisor for Honors Program Thesis)</li>
-          <li>Nizhang Li (MUST, 2026.2 - current, visiting scholar)</li>
           <li>Deekshith Reddy Bhoomireddy (Penn State, 2025.11 - current)</li>
-          <li>Rishit Rai (Penn State, 2025.11 - current)</li>
         </ul>
       </div>
     </div>
@@ -278,6 +324,8 @@
       <div style="max-width:780px; margin:auto;">
         <h2>Alumni</h2>
         <ul class="member-list">
+          <li>Yurun Lin (Master student @ Drexel, 2025.10 - 2026.05)</li>
+          <li>Rishit Rai (Master student @ Penn State, 2025.11 - 2026.07)</li>
           <li>Zihao Zhao (Undergraduate student @ JHU, 2023.12 - 2024.12 → Ph.D. Student @ JHU)</li>
           <li>Qichang Liu (Undergraduate student @ Tsinghua, 2024.06 - 2024.12 → Ph.D. Student @ UIUC)</li>
         </ul>
