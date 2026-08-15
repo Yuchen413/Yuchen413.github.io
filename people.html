@@ -95,6 +95,190 @@
     .member-list li {
       margin-bottom: 8px;
     }
+
+    /* Lab Moments photo stack */
+    .lab-moments-stack {
+      position: relative;
+      width: 91%;
+      height: 320px;
+      margin: 12px auto 28px auto;
+      cursor: pointer;
+      isolation: isolate;
+      outline: none;
+      -webkit-tap-highlight-color: transparent;
+    }
+
+    .lab-moments-stack:focus-visible {
+      outline: 3px solid rgba(78, 131, 170, 0.45);
+      outline-offset: 8px;
+      border-radius: 14px;
+    }
+
+    .lab-moment-card {
+      position: absolute;
+      inset: 0;
+      margin: 0;
+      overflow: hidden;
+      border: 1px solid rgba(0, 0, 0, 0.07);
+      border-radius: 14px;
+      background: #fff;
+      box-shadow: 0 10px 24px rgba(0, 0, 0, 0.12);
+      opacity: 0;
+      pointer-events: none;
+      transform: translate(0, 10px) scale(0.98);
+      transform-origin: center;
+      transition:
+        transform 420ms ease,
+        opacity 320ms ease,
+        box-shadow 420ms ease;
+    }
+
+    .lab-moment-card.is-active {
+      z-index: 4;
+      opacity: 1;
+      transform: translate(0, 0) rotate(0deg) scale(1);
+    }
+
+    .lab-moment-card.is-next {
+      z-index: 3;
+      opacity: 1;
+      transform: translate(7px, 7px) rotate(0.7deg) scale(0.995);
+      box-shadow: 0 8px 18px rgba(0, 0, 0, 0.09);
+    }
+
+    .lab-moment-card.is-next-two {
+      z-index: 2;
+      opacity: 0.8;
+      transform: translate(-5px, 12px) rotate(-0.6deg) scale(0.99);
+      box-shadow: 0 6px 14px rgba(0, 0, 0, 0.07);
+    }
+
+    /* Fill the sides of portrait photos without cropping the original image. */
+    .lab-moment-card::before {
+      content: "";
+      position: absolute;
+      z-index: 0;
+      inset: -24px;
+      background-image:
+        linear-gradient(rgba(20, 28, 34, 0.20), rgba(20, 28, 34, 0.20)),
+        var(--moment-image);
+      background-position: center;
+      background-size: cover;
+      filter: blur(16px);
+      transform: scale(1.08);
+      opacity: 0.72;
+    }
+
+    .lab-moment-card img {
+      position: relative;
+      z-index: 1;
+      width: 100%;
+      height: 100%;
+      object-fit: contain;
+      object-position: center;
+      display: block;
+      transform: scale(var(--photo-scale, 1));
+      transform-origin: var(--photo-origin, center);
+    }
+
+    /*
+      PERSONALIZE EACH PHOTO HERE
+
+      --photo-scale controls enlargement:
+         1.35 = 35% larger
+         1.20 = 20% larger
+         1.00 = original size
+
+      --photo-origin controls which part remains visible:
+         center 35% = favor the upper part
+         center 50% = center the photo
+         center 65% = favor the lower part
+    */
+    .photo-crab {
+      --photo-scale: 1.4;
+      --photo-origin: center 50%;
+    }
+
+    .photo-usenix-poster {
+      --photo-scale: 1.35;
+      --photo-origin: center 50%;
+    }
+
+    .photo-usenix-present {
+      --photo-scale: 1.35;
+      --photo-origin: center 50%;
+    }
+
+    .photo-ccs {
+      --photo-scale: 1.25;
+      --photo-origin: center 50%;
+    }
+
+    .photo-icml {
+      --photo-scale: 1.15;
+      --photo-origin: center 50%;
+    }
+
+    .photo-jhu {
+      --photo-scale: 1.35;
+      --photo-origin: center 35%;
+    }
+
+    .lab-moment-caption {
+      position: absolute;
+      z-index: 2;
+      left: 14px;
+      bottom: 12px;
+      max-width: calc(100% - 110px);
+      padding: 8px 12px;
+      border-radius: 12px;
+      background: rgba(0, 0, 0, 0.38);
+      color: #fff;
+      backdrop-filter: blur(2px);
+    }
+
+    .lab-moment-title {
+      font-weight: bold;
+    }
+
+    .lab-moment-detail {
+      margin-top: 2px;
+      font-size: 13px;
+      opacity: 0.95;
+    }
+
+    .lab-moment-counter {
+      position: absolute;
+      z-index: 5;
+      right: 14px;
+      bottom: 12px;
+      min-width: 44px;
+      padding: 6px 9px;
+      border-radius: 999px;
+      background: rgba(0, 0, 0, 0.38);
+      color: #fff;
+      font-size: 12px;
+      line-height: 1;
+      text-align: center;
+      pointer-events: none;
+      backdrop-filter: blur(2px);
+    }
+
+    @media (max-width: 600px) {
+      .lab-moments-stack {
+        height: 240px;
+      }
+
+      .lab-moment-caption {
+        max-width: calc(100% - 90px);
+      }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      .lab-moment-card {
+        transition: none;
+      }
+    }
   </style>
 
     <!-- Footnote -->
@@ -196,25 +380,72 @@
     <div class="w3-container w3-padding-32" id="people">
       <div style="max-width:780px; margin:auto;">
 
-        <!-- group -->
+        <!-- Lab Moments: click the stack to show the next photo -->
         <div
-          class="w3-card w3-round-large"
-          style="position:relative; overflow:hidden; width:91%; margin:12px auto 16px auto;"
+          class="lab-moments-stack"
+          id="labMoments"
+          role="button"
+          tabindex="0"
+          aria-label="Show the next Lab Moments photo"
         >
-          <img
-            src="images/crab.jpg"
-            alt="Lab group"
-            style="width:100%; height:320px; object-fit:cover; display:block;"
-          />
 
-          <div
-            style="position:absolute; left:14px; bottom:12px; color:#fff; background:rgba(0,0,0,0.35); padding:8px 12px; border-radius:12px;"
-          >
-            <div style="font-weight:bold;">Lab Moments</div>
-            <div style="font-size:13px; opacity:0.95;">
-              Dec 23, 2025 • Crazy Crab • DC
-            </div>
-          </div>
+          <figure class="lab-moment-card is-active" style="--moment-image: url('images/crab.jpg');">
+            <img class="photo-crab" src="images/crab.jpg" alt="Lab dinner at Crazy Crab in Washington, DC" />
+            <figcaption class="lab-moment-caption">
+              <div class="lab-moment-title">Lab Moments</div>
+              <div class="lab-moment-detail">Dec 23, 2025 • Crazy Crab • DC</div>
+            </figcaption>
+          </figure>
+
+
+          <figure class="lab-moment-card is-next" style="--moment-image: url('images/Usenix26-Poster.JPG');">
+            <img class="photo-usenix-poster" src="images/Usenix26-Poster.JPG" alt="At the USENIX Security 2026 poster session" />
+            <figcaption class="lab-moment-caption">
+              <div class="lab-moment-title">Lab Moments</div>
+              <div class="lab-moment-detail">Aug 14, 2026 • Baltimore • USENIX Security ’26</div>
+            </figcaption>
+          </figure>
+
+          <figure class="lab-moment-card is-next-two" style="--moment-image: url('images/Usenix26-Present.JPG');">
+            <img class="photo-usenix-present" src="images/Usenix26-Present.JPG" alt="Presentation at USENIX Security 2026" />
+            <figcaption class="lab-moment-caption">
+              <div class="lab-moment-title">Lab Moments</div>
+              <div class="lab-moment-detail">Aug 14, 2026 • Baltimore • USENIX Security ’26</div>
+            </figcaption>
+          </figure>
+
+
+          <figure class="lab-moment-card" style="--moment-image: url('images/CCS25.jpeg');">
+            <img class="photo-ccs" src="images/CCS25.jpeg" alt="Presentation at ACM CCS 2025" />
+            <figcaption class="lab-moment-caption">
+              <div class="lab-moment-title">Lab Moments</div>
+              <div class="lab-moment-detail">Oct 17, 2025 • Taipei • ACM CCS ’25 </div>
+            </figcaption>
+          </figure>
+
+          <figure class="lab-moment-card is-next" style="--moment-image: url('images/ICML26.JPG');">
+            <img class="photo-icml" src="images/ICML26.JPG" alt="At the ICML 2026 poster session" />
+            <figcaption class="lab-moment-caption">
+              <div class="lab-moment-title">Lab Moments</div>
+              <div class="lab-moment-detail">Jul 9, 2026 • Seoul • ICML ’26</div>
+            </figcaption>
+          </figure>
+
+
+          <figure class="lab-moment-card" style="--moment-image: url('images/JHU.JPG');">
+            <img
+              class="photo-jhu"
+              src="images/JHU.JPG"
+              alt="At Yuchen's Home Lab in JHU"
+            />
+            <figcaption class="lab-moment-caption">
+              <div class="lab-moment-title">Lab Moments</div>
+              <div class="lab-moment-detail">Aug 11, 2026 • Baltimore • JHU • At Yuchen's Home Lab</div>
+            </figcaption>
+          </figure>
+
+
+          <div class="lab-moment-counter" id="labMomentCounter" aria-hidden="true">1 / 6</div>
         </div>
 
         <hr style="border:none; border-top:1px solid #ccc; margin:0 auto; width:91%;" />
@@ -342,6 +573,47 @@
     function w3_close() {
       document.getElementById("mySidebar").style.display = "none";
       document.getElementById("myOverlay").style.display = "none";
+    }
+
+    const labMoments = document.getElementById("labMoments");
+
+    if (labMoments) {
+      const cards = Array.from(labMoments.querySelectorAll(".lab-moment-card"));
+      const counter = document.getElementById("labMomentCounter");
+      let activeIndex = 0;
+
+      function showLabMoment(index) {
+        activeIndex = (index + cards.length) % cards.length;
+
+        cards.forEach((card, cardIndex) => {
+          const offset = (cardIndex - activeIndex + cards.length) % cards.length;
+          card.classList.remove("is-active", "is-next", "is-next-two");
+
+          if (offset === 0) card.classList.add("is-active");
+          if (offset === 1) card.classList.add("is-next");
+          if (offset === 2) card.classList.add("is-next-two");
+        });
+
+        counter.textContent = `${activeIndex + 1} / ${cards.length}`;
+      }
+
+      function showNextLabMoment() {
+        showLabMoment(activeIndex + 1);
+      }
+
+      labMoments.addEventListener("click", showNextLabMoment);
+
+      labMoments.addEventListener("keydown", (event) => {
+        if (event.key === "Enter" || event.key === " " || event.key === "ArrowRight") {
+          event.preventDefault();
+          showNextLabMoment();
+        } else if (event.key === "ArrowLeft") {
+          event.preventDefault();
+          showLabMoment(activeIndex - 1);
+        }
+      });
+
+      showLabMoment(0);
     }
   </script>
 </body>
